@@ -183,7 +183,7 @@ public class PieChartRenderer: ChartDataRendererBase
                     * sin((rotationAngle + angle) * ChartUtils.Math.FDEG2RAD)
                     + center.y
 
-                let value = usePercentValuesEnabled ? e.value / data.yValueSum * 100.0 : e.value
+                let value = usePercentValuesEnabled ? e.value / (data as! PieChartData).yValueSum * 100.0 : e.value
                 
                 let val = formatter!.stringFromNumber(value)!
                 
