@@ -145,7 +145,7 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
                 CGContextTranslateCTM(context, point.x, point.y)
                 
                 CGContextBeginPath(context)
-                CGContextAddPath(context, customShape)
+                CGContextAddPath(context, customShape!)
                 CGContextFillPath(context)
                 
                 CGContextRestoreGState(context)
@@ -157,7 +157,7 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
     
     public override func drawValues(context context: CGContext)
     {
-        guard let dataProvider = dataProvider, scatterData = dataProvider.scatterData else { return }
+        guard let dataProvider = dataProvider, let scatterData = dataProvider.scatterData else { return }
         
         // if values are drawn
         if (scatterData.yValCount < Int(ceil(CGFloat(dataProvider.maxVisibleValueCount) * viewPortHandler.scaleX)))
@@ -218,7 +218,7 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
     
     public override func drawHighlighted(context context: CGContext, indices: [ChartHighlight])
     {
-        guard let dataProvider = dataProvider, scatterData = dataProvider.scatterData else { return }
+        guard let dataProvider = dataProvider, let scatterData = dataProvider.scatterData else { return }
         
         let chartXMax = dataProvider.chartXMax
         
